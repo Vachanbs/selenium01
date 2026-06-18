@@ -1,4 +1,4 @@
-pileline{
+pipeline{
 	agent any
 	tools{
 		maven 'Maven'
@@ -6,7 +6,7 @@ pileline{
 	stages{
 		stage('checkout'){
 		steps{
-			git branch : 'main' url : 'https://github.com/Vachanbs/Selenium01.git' 
+			git branch : 'main' , url : 'https://github.com/Vachanbs/Selenium01.git' 
 		}
 		}
 		stage('build'){
@@ -17,10 +17,7 @@ pileline{
 		steps{
 			sh 'mvn test'
 		}}
-		stage('Run Application'){
-		steps{
-			sh 'java -jar target/MyMavenGuavaApp-1.0-SNAPSHOT.jar'
-		}}
+		
 	}
 	post{
 		success{
@@ -31,6 +28,3 @@ pileline{
 		}
 	}
 	}
-
-
-
